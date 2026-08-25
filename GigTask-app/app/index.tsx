@@ -1,34 +1,17 @@
-import { ActivityIndicator, Text, View } from "react-native";
+import { Redirect } from "expo-router";
+
 import { useAuth } from "../context/AuthContext";
 
 export default function Index() {
   const { session, loading } = useAuth();
 
   if (loading) {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <ActivityIndicator />
-      </View>
-    );
+    return null;
   }
 
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>
-        {session ? `Logged in as ${session.user.email}` : "Not logged in"}
-      </Text>
-    </View>
-  );
+  if (session) {
+    return <Redirect href="/tasks" />;
+  }
+
+  return <Redirect href="/auth/login" />;
 }

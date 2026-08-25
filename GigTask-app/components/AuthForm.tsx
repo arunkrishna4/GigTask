@@ -11,7 +11,11 @@ import {
 
 import { supabase } from "../lib/supabase";
 
-export default function AuthForm() {
+export default function AuthForm({
+  onAuthenticated,
+}: {
+  onAuthenticated: () => void;
+}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -64,7 +68,7 @@ export default function AuthForm() {
       return;
     }
 
-    Alert.alert("Success", "You are logged in.");
+    onAuthenticated();
   };
 
   return (

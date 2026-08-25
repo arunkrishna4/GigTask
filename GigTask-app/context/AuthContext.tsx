@@ -6,16 +6,19 @@ import {
   useEffect,
   useState,
 } from "react";
+import Toast from "react-native-toast-message";
 import { supabase } from "../lib/supabase";
 
 interface AuthContextType {
   session: Session | null;
   loading: boolean;
+  signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType>({
   session: null,
   loading: true,
+  signOut: async () => {},
 });
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -51,8 +54,27 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
+  const signOut = async () => {
+    const { error } = await supabase.auth.signOut();
+    Toast.show({
+      type: "success",
+      text1: "Logged Out",
+      text2: "Successfully logged out.",
+    });
+
+    if (error) {
+      throw new Error(error.message);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ session, loading }}>
+    <AuthContext.Provider
+      value={{
+        session,
+        loading,
+        signOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
