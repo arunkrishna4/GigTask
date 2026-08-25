@@ -133,37 +133,52 @@ export default function TaskDetails() {
               <>
                 {/* TASK HERO */}
 
-                <View style={styles.taskHero}>
-                  <View style={styles.statusRow}>
-                    <View
-                      style={[
-                        styles.statusDot,
-                        task.completed && styles.completedDot,
-                      ]}
-                    />
+                <LinearGradient
+                  colors={
+                    task.completed
+                      ? ["#0F766E", "#14B8A6"]
+                      : ["#111827", "#4F46E5"]
+                  }
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                  style={styles.taskHero}
+                >
+                  <View style={styles.heroContentRow}>
+                    <View style={styles.heroTextBlock}>
+                      <Text
+                        style={[
+                          styles.taskTitle,
+                          task.completed && styles.completedTitle,
+                        ]}
+                      >
+                        {task.title}
+                      </Text>
 
-                    <Text style={styles.statusText}>
-                      {task.completed ? "COMPLETED" : "IN PROGRESS"}
-                    </Text>
+                      {task.description ? (
+                        <Text style={styles.description}>
+                          {task.description}
+                        </Text>
+                      ) : (
+                        <Text style={styles.noDescription}>
+                          No description added.
+                        </Text>
+                      )}
+                    </View>
+
+                    <View style={styles.statusPill}>
+                      <View
+                        style={[
+                          styles.statusDot,
+                          task.completed && styles.completedDot,
+                        ]}
+                      />
+
+                      <Text style={styles.statusText}>
+                        {task.completed ? "Completed" : "In progress"}
+                      </Text>
+                    </View>
                   </View>
-
-                  <Text
-                    style={[
-                      styles.taskTitle,
-                      task.completed && styles.completedTitle,
-                    ]}
-                  >
-                    {task.title}
-                  </Text>
-
-                  {task.description ? (
-                    <Text style={styles.description}>{task.description}</Text>
-                  ) : (
-                    <Text style={styles.noDescription}>
-                      No description added.
-                    </Text>
-                  )}
-                </View>
+                </LinearGradient>
 
                 {/* TASK META */}
 
@@ -224,31 +239,44 @@ export default function TaskDetails() {
 
                 {/* COMPLETION STATUS */}
 
-                <View style={styles.completionCard}>
-                  <View
-                    style={[
-                      styles.completionIcon,
-                      task.completed && styles.completionIconDone,
-                    ]}
-                  >
-                    {task.completed && (
-                      <Text style={styles.completionCheck}>✓</Text>
-                    )}
-                  </View>
+                <View style={styles.insightCard}>
+                  <View style={styles.completionCard}>
+                    <View
+                      style={[
+                        styles.completionIcon,
+                        task.completed && styles.completionIconDone,
+                      ]}
+                    >
+                      {task.completed ? (
+                        <Ionicons
+                          name="checkmark"
+                          size={18}
+                          color={COLORS.white}
+                        />
+                      ) : (
+                        <Ionicons
+                          name="time-outline"
+                          size={18}
+                          color={COLORS.primary}
+                        />
+                      )}
+                    </View>
 
-                  <View style={styles.completionTextContainer}>
-                    <Text style={styles.completionTitle}>
-                      {task.completed ? "Task completed" : "Task still pending"}
-                    </Text>
+                    <View style={styles.completionTextContainer}>
+                      <Text style={styles.completionTitle}>
+                        {task.completed
+                          ? "This task is wrapped"
+                          : "Ready for the next push"}
+                      </Text>
 
-                    <Text style={styles.completionSubtitle}>
-                      {task.completed
-                        ? "Nice work. This task is finished."
-                        : "Complete it from the dashboard."}
-                    </Text>
+                      <Text style={styles.completionSubtitle}>
+                        {task.completed
+                          ? "Everything important is preserved here for reference."
+                          : "Keep the details sharp, then complete it from the dashboard."}
+                      </Text>
+                    </View>
                   </View>
                 </View>
-
                 {error ? <Text style={styles.error}>{error}</Text> : null}
 
                 {/* ACTIONS */}
@@ -285,70 +313,83 @@ export default function TaskDetails() {
             ) : (
               /* EDIT MODE */
               <>
-                <View style={styles.field}>
-                  <Text style={styles.label}>Task title</Text>
-
-                  <TextInput
-                    style={styles.input}
-                    value={title}
-                    onChangeText={setTitle}
-                    maxLength={100}
-                    placeholder="Task title"
-                    placeholderTextColor={COLORS.mutedText}
-                  />
-                </View>
-
-                <View style={styles.field}>
-                  <Text style={styles.label}>Description</Text>
-
-                  <TextInput
-                    style={[styles.input, styles.textArea]}
-                    value={description}
-                    onChangeText={setDescription}
-                    multiline
-                    maxLength={500}
-                    placeholder="Add some details..."
-                    placeholderTextColor={COLORS.mutedText}
-                  />
-                </View>
-
-                <View style={styles.field}>
-                  <Text style={styles.label}>Due date</Text>
-
-                  <Pressable
-                    style={styles.dateButton}
-                    onPress={() => setShowDatePicker(true)}
-                  >
-                    <Text style={styles.dateText}>
-                      {dueDate.toLocaleDateString(undefined, {
-                        weekday: "short",
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
+                <View style={styles.formCard}>
+                  <View style={styles.formHeader}>
+                    <Text style={styles.formTitle}>Refine the task</Text>
+                    <Text style={styles.formSubtitle}>
+                      Make the important parts easy to scan later.
                     </Text>
+                  </View>
 
-                    <Ionicons
-                      name="calendar-outline"
-                      size={20}
-                      color={COLORS.primary}
+                  <View style={styles.field}>
+                    <Text style={styles.label}>Task title</Text>
+
+                    <TextInput
+                      style={styles.input}
+                      value={title}
+                      onChangeText={setTitle}
+                      maxLength={100}
+                      placeholder="Task title"
+                      placeholderTextColor={COLORS.mutedText}
                     />
-                  </Pressable>
+                  </View>
 
-                  {showDatePicker && (
-                    <DateTimePicker
-                      value={dueDate}
-                      mode="date"
-                      minimumDate={new Date()}
-                      onChange={handleDateChange}
+                  <View style={styles.field}>
+                    <Text style={styles.label}>Description</Text>
+
+                    <TextInput
+                      style={[styles.input, styles.textArea]}
+                      value={description}
+                      onChangeText={setDescription}
+                      multiline
+                      maxLength={500}
+                      placeholder="Add some details..."
+                      placeholderTextColor={COLORS.mutedText}
                     />
-                  )}
-                </View>
+                  </View>
 
-                <View style={styles.field}>
-                  <Text style={styles.label}>Priority</Text>
+                  <View style={styles.formSplitRow}>
+                    <View style={[styles.field, styles.splitField]}>
+                      <Text style={styles.label}>Due date</Text>
 
-                  <PrioritySelector value={priority} onChange={setPriority} />
+                      <Pressable
+                        style={styles.dateButton}
+                        onPress={() => setShowDatePicker(true)}
+                      >
+                        <Text style={styles.dateText}>
+                          {dueDate.toLocaleDateString(undefined, {
+                            weekday: "short",
+                            day: "numeric",
+                            month: "short",
+                          })}
+                        </Text>
+
+                        <Ionicons
+                          name="calendar-outline"
+                          size={19}
+                          color={COLORS.primary}
+                        />
+                      </Pressable>
+
+                      {showDatePicker && (
+                        <DateTimePicker
+                          value={dueDate}
+                          mode="date"
+                          minimumDate={new Date()}
+                          onChange={handleDateChange}
+                        />
+                      )}
+                    </View>
+
+                    <View style={[styles.field, styles.splitField]}>
+                      <Text style={styles.label}>Priority</Text>
+
+                      <PrioritySelector
+                        value={priority}
+                        onChange={setPriority}
+                      />
+                    </View>
+                  </View>
                 </View>
 
                 {error ? <Text style={styles.error}>{error}</Text> : null}

@@ -1,23 +1,27 @@
 import { StyleSheet } from "react-native";
+import { COLORS, RADIUS, SPACING } from "../constants/theme";
 
-import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
-
-export default StyleSheet.create({
+const styles = StyleSheet.create({
   card: {
     backgroundColor: COLORS.surface,
     borderRadius: RADIUS.lg,
+    borderWidth: 1,
+    borderColor: COLORS.border,
     padding: SPACING.md,
-    marginBottom: SPACING.md,
-    shadowColor: "#0F172A",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.08,
-    shadowRadius: 12,
-    elevation: 3,
+    marginBottom: SPACING.sm,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
   },
 
   cardPressed: {
-    opacity: 0.9,
-    transform: [{ scale: 0.995 }],
+    opacity: 0.92,
+    transform: [{ scale: 0.99 }],
   },
 
   topRow: {
@@ -26,19 +30,18 @@ export default StyleSheet.create({
   },
 
   checkbox: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
+    width: 23,
+    height: 23,
+    borderRadius: 7,
     borderWidth: 2,
     borderColor: COLORS.border,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: SPACING.sm,
     marginTop: 2,
+    marginRight: SPACING.sm,
   },
 
   checkboxPressed: {
-    backgroundColor: COLORS.primaryLight,
     borderColor: COLORS.primary,
   },
 
@@ -51,70 +54,75 @@ export default StyleSheet.create({
     color: COLORS.white,
     fontSize: 14,
     fontWeight: "700",
+    lineHeight: 16,
   },
 
   titleContainer: {
     flex: 1,
-    marginRight: SPACING.sm,
+    paddingRight: SPACING.sm,
   },
 
   title: {
     color: COLORS.text,
-    fontSize: TYPOGRAPHY.body,
+    fontSize: 16,
     fontWeight: "700",
+    lineHeight: 21,
   },
 
   completedTitle: {
-    textDecorationLine: "line-through",
     color: COLORS.mutedText,
+    textDecorationLine: "line-through",
   },
 
   description: {
     color: COLORS.mutedText,
-    fontSize: TYPOGRAPHY.small,
+    fontSize: 13,
+    lineHeight: 19,
     marginTop: 4,
-    lineHeight: 18,
   },
 
   priorityBadge: {
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 4,
-    borderRadius: RADIUS.sm,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+    borderRadius: 999,
+    marginLeft: SPACING.xs,
   },
 
   lowBadge: {
-    backgroundColor: COLORS.successLight,
+    backgroundColor: "#EAF7EE",
   },
 
   mediumBadge: {
-    backgroundColor: COLORS.warningLight,
+    backgroundColor: "#FFF7D6",
   },
 
   highBadge: {
-    backgroundColor: COLORS.dangerLight,
+    backgroundColor: "#FDECEC",
   },
 
   priorityText: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: "700",
+    textTransform: "uppercase",
+    letterSpacing: 0.3,
   },
 
   lowText: {
-    color: COLORS.success,
+    color: "#2F8F4E",
   },
 
   mediumText: {
-    color: COLORS.warning,
+    color: "#A47700",
   },
 
   highText: {
-    color: COLORS.danger,
+    color: "#C94A4A",
   },
 
   bottomRow: {
     flexDirection: "row",
-    justifyContent: "space-between",
     alignItems: "center",
+    justifyContent: "space-between",
     marginTop: SPACING.md,
     paddingTop: SPACING.sm,
     borderTopWidth: 1,
@@ -123,53 +131,27 @@ export default StyleSheet.create({
 
   dueDate: {
     color: COLORS.mutedText,
-    fontSize: TYPOGRAPHY.small,
-  },
-
-  overdue: {
-    color: COLORS.danger,
+    fontSize: 12,
     fontWeight: "600",
   },
 
-  actions: {
-    flexDirection: "row",
-    gap: SPACING.sm,
+  overdue: {
+    color: "#C94A4A",
   },
-
-  actionButton: {
+  rightSection: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 4,
-    paddingHorizontal: SPACING.sm,
-    paddingVertical: 6,
-    borderRadius: RADIUS.sm,
+    justifyContent: "center",
+    marginLeft: SPACING.xs,
   },
 
-  editButton: {
-    backgroundColor: COLORS.primaryLight,
-  },
-
-  editButtonPressed: {
-    backgroundColor: "#DDE2FB",
-  },
-
-  deleteButton: {
-    backgroundColor: COLORS.dangerLight,
-  },
-
-  deleteButtonPressed: {
-    backgroundColor: "#FCE0E0",
-  },
-
-  editText: {
-    color: COLORS.primary,
-    fontSize: TYPOGRAPHY.small,
-    fontWeight: "700",
-  },
-
-  deleteText: {
-    color: COLORS.danger,
-    fontSize: TYPOGRAPHY.small,
-    fontWeight: "700",
+  arrow: {
+    color: COLORS.mutedText,
+    fontSize: 28,
+    lineHeight: 24,
+    marginTop: 5,
+    marginLeft: 4,
   },
 });
+
+export default styles;

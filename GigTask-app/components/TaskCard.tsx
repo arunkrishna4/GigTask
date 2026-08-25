@@ -11,7 +11,6 @@ import {
 interface TaskCardProps {
   task: Task;
   onToggle: () => void;
-
   onPress: () => void;
 }
 
@@ -49,10 +48,20 @@ export default function TaskCard({ task, onToggle, onPress }: TaskCardProps) {
           ) : null}
         </View>
 
-        <View style={[styles.priorityBadge, styles[`${task.priority}Badge`]]}>
-          <Text style={[styles.priorityText, styles[`${task.priority}Text`]]}>
-            {getPriorityLabel(task.priority)}
-          </Text>
+        <View style={styles.rightSection}>
+          <View
+            style={[
+              styles.priorityBadge,
+              styles[`${task.priority}Badge`],
+              { marginTop: 10 },
+            ]}
+          >
+            <Text style={[styles.priorityText, styles[`${task.priority}Text`]]}>
+              {getPriorityLabel(task.priority)}
+            </Text>
+          </View>
+
+          <Text style={styles.arrow}>›</Text>
         </View>
       </View>
 

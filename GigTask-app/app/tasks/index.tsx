@@ -16,6 +16,7 @@ import EmptyTasks from "../../components/EmptyTasks";
 import TaskCard from "../../components/TaskCard";
 import { COLORS, GRADIENTS } from "../../constants/theme";
 
+import TaskFilters from "@/components/TaskFilters";
 import { useTasks } from "../../hooks/useTasks";
 import styles from "../../styles/tasks.styles";
 
@@ -30,7 +31,10 @@ export default function Tasks() {
     pendingCount,
     refreshTasks,
     toggleTask,
-    deleteTask,
+    statusFilter,
+    priorityFilter,
+    setStatusFilter,
+    setPriorityFilter,
     logout,
   } = useTasks();
   const router = useRouter();
@@ -51,6 +55,9 @@ export default function Tasks() {
         style={styles.container}
         edges={["top", "bottom", "left", "right"]}
       >
+        <View style={styles.decorCircleTop} pointerEvents="none" />
+        <View style={styles.decorCircleBottom} pointerEvents="none" />
+
         <View style={styles.header}>
           <View>
             <Text style={styles.greeting}>Your tasks</Text>
@@ -66,32 +73,59 @@ export default function Tasks() {
             hitSlop={8}
           >
             <Ionicons name="log-out-outline" size={24} color={COLORS.danger} />
-            <Text
-              style={{ fontSize: 16, color: COLORS.danger, fontWeight: "bold" }}
-            >
-              Logout
-            </Text>
+            <Text style={styles.logoutText}>Logout</Text>
           </Pressable>
         </View>
 
         <View style={styles.statsContainer}>
           <View style={styles.statCard}>
+            <View style={styles.statTopRow}>
+              <View style={styles.statIcon}>
+                <Ionicons
+                  name="albums-outline"
+                  size={18}
+                  color={COLORS.primary}
+                />
+              </View>
+              <Text style={styles.statLabel}>Total</Text>
+            </View>
             <Text style={styles.statNumber}>{totalCount}</Text>
-            <Text style={styles.statLabel}>Total</Text>
           </View>
 
           <View style={styles.statCard}>
+            <View style={styles.statTopRow}>
+              <View style={[styles.statIcon, styles.pendingIcon]}>
+                <Ionicons name="time-outline" size={18} color="#A16207" />
+              </View>
+              <Text style={styles.statLabel}>Pending</Text>
+            </View>
             <Text style={styles.statNumber}>{pendingCount}</Text>
-            <Text style={styles.statLabel}>Pending</Text>
           </View>
 
           <View style={styles.statCard}>
+            <View style={styles.statTopRow}>
+              <View style={[styles.statIcon, styles.doneIcon]}>
+                <Ionicons name="checkmark" size={18} color="#047857" />
+              </View>
+              <Text style={styles.statLabel}>Done</Text>
+            </View>
             <Text style={styles.statNumber}>{completedCount}</Text>
-            <Text style={styles.statLabel}>Done</Text>
           </View>
         </View>
 
+        <TaskFilters
+          statusFilter={statusFilter}
+          priorityFilter={priorityFilter}
+          onStatusChange={setStatusFilter}
+          onPriorityChange={setPriorityFilter}
+        />
+
         {error ? <Text style={styles.error}>{error}</Text> : null}
+
+        <View style={styles.listHeader}>
+          <Text style={styles.listTitle}>Tasks</Text>
+          <Text style={styles.listCount}>{tasks.length} showing</Text>
+        </View>
 
         <FlatList
           data={tasks}
@@ -126,7 +160,7 @@ export default function Tasks() {
           style={({ pressed }) => [styles.fab, pressed && styles.fabPressed]}
           onPress={() => router.push("/tasks/create")}
         >
-          <Text style={styles.fabText}>+</Text>
+          <Ionicons name="add" size={32} color={COLORS.white} />
         </Pressable>
       </SafeAreaView>
     </LinearGradient>
