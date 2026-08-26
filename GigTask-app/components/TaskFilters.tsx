@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { PriorityFilter, TaskFilter } from "../hooks/useTasks";
 import styles from "../styles/task-filters.styles";
 
@@ -23,11 +24,11 @@ const priorityOptions: {
   value: PriorityFilter;
   dot: "allDot" | "lowDot" | "mediumDot" | "highDot";
 }[] = [
-  { label: "All", value: "all", dot: "allDot" },
-  { label: "Low", value: "low", dot: "lowDot" },
-  { label: "Medium", value: "medium", dot: "mediumDot" },
-  { label: "High", value: "high", dot: "highDot" },
-];
+    { label: "All", value: "all", dot: "allDot" },
+    { label: "Low", value: "low", dot: "lowDot" },
+    { label: "Medium", value: "medium", dot: "mediumDot" },
+    { label: "High", value: "high", dot: "highDot" },
+  ];
 
 export default function TaskFilters({
   statusFilter,
@@ -47,7 +48,12 @@ export default function TaskFilters({
   );
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      colors={["#E0F2FE", "#E0E7FF", "#F3E8FF"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
       <Text style={styles.title}>Filter</Text>
 
       <View style={styles.controlsRow}>
@@ -164,6 +170,6 @@ export default function TaskFilters({
           </View>
         </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 }

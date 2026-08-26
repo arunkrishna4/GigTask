@@ -17,6 +17,7 @@ import TaskCard from "../../components/TaskCard";
 import { COLORS, GRADIENTS } from "../../constants/theme";
 
 import TaskFilters from "@/components/TaskFilters";
+import { normalize } from "@/utils/normalize";
 import { useTasks } from "../../hooks/useTasks";
 import styles from "../../styles/tasks.styles";
 
@@ -78,39 +79,68 @@ export default function Tasks() {
         </View>
 
         <View style={styles.statsContainer}>
-          <View style={styles.statCard}>
+          <LinearGradient
+            colors={["#312E81", "#6366F1"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.statCard}
+          >
             <View style={styles.statTopRow}>
               <View style={styles.statIcon}>
                 <Ionicons
                   name="albums-outline"
-                  size={18}
-                  color={COLORS.primary}
+                  size={normalize(22)}
+                  color="#C7D2FE"
                 />
               </View>
+
               <Text style={styles.statLabel}>Total</Text>
             </View>
-            <Text style={styles.statNumber}>{totalCount}</Text>
-          </View>
 
-          <View style={styles.statCard}>
+            <Text style={styles.statNumber}>{totalCount}</Text>
+          </LinearGradient>
+
+          <LinearGradient
+            colors={["#92400E", "#F59E0B"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.statCard}
+          >
             <View style={styles.statTopRow}>
-              <View style={[styles.statIcon, styles.pendingIcon]}>
-                <Ionicons name="time-outline" size={18} color="#A16207" />
+              <View style={styles.statIcon}>
+                <Ionicons
+                  name="time-outline"
+                  size={normalize(22)}
+                  color="#FEF3C7"
+                />
               </View>
+
               <Text style={styles.statLabel}>Pending</Text>
             </View>
-            <Text style={styles.statNumber}>{pendingCount}</Text>
-          </View>
 
-          <View style={styles.statCard}>
+            <Text style={styles.statNumber}>{pendingCount}</Text>
+          </LinearGradient>
+
+          <LinearGradient
+            colors={["#115E59", "#14B8A6"]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.statCard}
+          >
             <View style={styles.statTopRow}>
-              <View style={[styles.statIcon, styles.doneIcon]}>
-                <Ionicons name="checkmark" size={18} color="#047857" />
+              <View style={styles.statIcon}>
+                <Ionicons
+                  name="checkmark"
+                  size={normalize(22)}
+                  color="#CCFBF1"
+                />
               </View>
+
               <Text style={styles.statLabel}>Done</Text>
             </View>
+
             <Text style={styles.statNumber}>{completedCount}</Text>
-          </View>
+          </LinearGradient>
         </View>
 
         <TaskFilters

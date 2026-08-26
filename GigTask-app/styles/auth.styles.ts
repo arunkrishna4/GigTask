@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import {
   COLORS,
@@ -17,7 +19,7 @@ export const styles = StyleSheet.create({
   content: {
     flex: 1,
     width: "100%",
-    maxWidth: 480,
+    maxWidth: normalize(480),
     alignSelf: "center",
     paddingHorizontal: SPACING.xxl,
   },
@@ -30,7 +32,7 @@ export const styles = StyleSheet.create({
   },
 
   title: {
-    fontSize: 28,
+    fontSize: normalize(28),
     fontWeight: "800",
     color: COLORS.text,
     letterSpacing: -0.5,
@@ -60,8 +62,8 @@ export const styles = StyleSheet.create({
   },
 
   logoBadge: {
-    width: 64,
-    height: 64,
+    width: normalize(64),
+    height: normalize(64),
     borderRadius: RADIUS.lg,
     backgroundColor: COLORS.primary,
     justifyContent: "center",
@@ -70,18 +72,18 @@ export const styles = StyleSheet.create({
   },
 
   wordmark: {
-    fontSize: 30,
+    fontSize: normalize(30),
     fontWeight: "800",
     color: COLORS.text,
     letterSpacing: -0.4,
-    marginBottom: 90,
+    marginBottom: normalize(90),
   },
 
   inputWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    height: 54,
-    borderWidth: 1.5,
+    height: normalize(54),
+    borderWidth: normalize(1.5),
     borderColor: COLORS.border,
     borderRadius: RADIUS.md,
     backgroundColor: COLORS.background,
@@ -124,7 +126,7 @@ export const styles = StyleSheet.create({
   },
 
   primaryButton: {
-    height: 54,
+    height: normalize(54),
     borderRadius: RADIUS.md,
     backgroundColor: COLORS.primary,
     justifyContent: "center",
@@ -163,34 +165,34 @@ export const styles = StyleSheet.create({
 
   decorCircleTop: {
     position: "absolute",
-    top: -80,
-    right: -60,
-    width: 220,
-    height: 220,
-    borderRadius: 110,
+    top: normalize(-80),
+    right: normalize(-60),
+    width: normalize(220),
+    height: normalize(220),
+    borderRadius: normalize(110),
     backgroundColor: COLORS.primary,
     opacity: 0.08,
   },
 
   decorCircleBottom: {
     position: "absolute",
-    bottom: -100,
-    left: -80,
-    width: 260,
-    height: 260,
-    borderRadius: 130,
+    bottom: normalize(-100),
+    left: normalize(-80),
+    width: normalize(260),
+    height: normalize(260),
+    borderRadius: normalize(130),
     backgroundColor: COLORS.primary,
     opacity: 0.06,
   },
 
   decorRing: {
     position: "absolute",
-    top: 60,
-    left: -40,
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 2,
+    top: normalize(60),
+    left: normalize(-40),
+    width: normalize(120),
+    height: normalize(120),
+    borderRadius: normalize(60),
+    borderWidth: normalize(2),
     borderColor: COLORS.primary,
     opacity: 0.08,
   },

@@ -33,6 +33,7 @@ export async function getTaskById(id: string): Promise<Task> {
   if (!user) {
     throw new Error("You must be logged in to view this task.");
   }
+  console.time("fetch-task");
 
   const { data, error } = await supabase
     .from("tasks")
@@ -40,6 +41,7 @@ export async function getTaskById(id: string): Promise<Task> {
     .eq("id", id)
     .eq("user_id", user.id)
     .single();
+  console.timeEnd("fetch-task");
 
   if (error) {
     throw new Error(error.message);

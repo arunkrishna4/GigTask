@@ -2,6 +2,7 @@ import { useLocalSearchParams, useRouter } from "expo-router";
 import { useCallback, useEffect, useState } from "react";
 import Toast from "react-native-toast-message";
 
+import { Alert } from "react-native";
 import { deleteTask, getTaskById, updateTask } from "../services/task.service";
 import { Task, TaskPriority } from "../types/task";
 import {
@@ -29,17 +30,25 @@ export function useTaskDetails() {
   const [deleting, setDeleting] = useState(false);
   const [error, setError] = useState("");
 
+
   const loadTask = useCallback(async () => {
+
+
     if (!id) {
       setError("Task not found.");
       setLoading(false);
+
       return;
     }
 
     try {
       setError("");
 
+
+
       const data = await getTaskById(id);
+
+
 
       setTask(data);
       setTitle(data.title);
@@ -47,9 +56,12 @@ export function useTaskDetails() {
       setDueDate(new Date(data.due_date));
       setPriority(data.priority);
     } catch (error) {
-      setError(error instanceof Error ? error.message : "Unable to load task.");
+      setError(
+        error instanceof Error ? error.message : "Unable to load task.",
+      );
     } finally {
       setLoading(false);
+
     }
   }, [id]);
 
@@ -179,6 +191,26 @@ export function useTaskDetails() {
     router.back();
   };
 
+  const handleDelete = () => {
+    const confirmation = confirmDelete();
+
+    if (!confirmation) {
+      return;
+    }
+
+    Alert.alert(confirmation.title, confirmation.message, [
+      {
+        text: "Cancel",
+        style: "cancel",
+      },
+      {
+        text: "Delete",
+        style: "destructive",
+        onPress: removeTask,
+      },
+    ]);
+  };
+
   return {
     task,
 
@@ -206,6 +238,7 @@ export function useTaskDetails() {
     cancelEditing,
     saveTask,
     confirmDelete,
+    handleDelete,
     removeTask,
     goBack,
   };

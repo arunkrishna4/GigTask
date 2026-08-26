@@ -14,20 +14,20 @@ import {
 export function useCreateTask() {
   const router = useRouter();
 
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [dueDate, setDueDate] = useState(new Date());
+  const [title, setTitle] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [dueDate, setDueDate] = useState<Date>(new Date());
   const [priority, setPriority] = useState<TaskPriority>("medium");
 
-  const [showDatePicker, setShowDatePicker] = useState(false);
+  const [showDatePicker, setShowDatePicker] = useState<boolean>(false);
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
 
   const handleDateChange = (
     _event: DateTimePickerEvent,
     selectedDate?: Date,
-  ) => {
+  ): void => {
     setShowDatePicker(false);
 
     if (selectedDate) {
@@ -35,7 +35,7 @@ export function useCreateTask() {
     }
   };
 
-  const submit = async () => {
+  const submit = async (): Promise<void> => {
     setError("");
 
     const titleError = validateTaskTitle(title);
@@ -83,7 +83,7 @@ export function useCreateTask() {
     }
   };
 
-  const goBack = () => {
+  const goBack = (): void => {
     router.back();
   };
 

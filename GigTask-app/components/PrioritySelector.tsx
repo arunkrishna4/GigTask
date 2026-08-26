@@ -26,7 +26,11 @@ export default function PrioritySelector({
             style={[styles.button, selected && styles.selectedButton]}
             onPress={() => onChange(priority)}
           >
-            <Text style={[styles.text, selected && styles.selectedText]}>
+            <Text
+              style={[styles.text, selected && styles.selectedText]}
+              numberOfLines={1}
+              adjustsFontSizeToFit
+            >
               {getPriorityLabel(priority)}
             </Text>
           </Pressable>

@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import { Pressable, Text, View } from "react-native";
 
 import styles from "../styles/task-card.styles";
@@ -14,10 +15,20 @@ interface TaskCardProps {
   onPress: () => void;
 }
 
-export default function TaskCard({ task, onToggle, onPress }: TaskCardProps) {
+export default function TaskCard({
+  task,
+  onToggle,
+  onPress,
+}: TaskCardProps) {
+  const overdue = isOverdue(task.due_date, task.completed);
+
   return (
     <Pressable
-      style={({ pressed }) => [styles.card, pressed && styles.cardPressed]}
+      style={({ pressed }) => [
+        styles.card,
+        task.completed && styles.completedCard,
+        pressed && styles.cardPressed,
+      ]}
       onPress={onPress}
     >
       <View style={styles.topRow}>
@@ -53,10 +64,14 @@ export default function TaskCard({ task, onToggle, onPress }: TaskCardProps) {
             style={[
               styles.priorityBadge,
               styles[`${task.priority}Badge`],
-              { marginTop: 10 },
             ]}
           >
-            <Text style={[styles.priorityText, styles[`${task.priority}Text`]]}>
+            <Text
+              style={[
+                styles.priorityText,
+                styles[`${task.priority}Text`],
+              ]}
+            >
               {getPriorityLabel(task.priority)}
             </Text>
           </View>
@@ -66,14 +81,22 @@ export default function TaskCard({ task, onToggle, onPress }: TaskCardProps) {
       </View>
 
       <View style={styles.bottomRow}>
-        <Text
-          style={[
-            styles.dueDate,
-            isOverdue(task.due_date, task.completed) && styles.overdue,
-          ]}
-        >
-          {isOverdue(task.due_date, task.completed) ? "Overdue · " : "Due · "}
-          {formatDueDate(task.due_date)}
+        <View style={styles.dueContainer}>
+          <Ionicons
+            name={overdue ? "alert-circle-outline" : "calendar-outline"}
+            size={14}
+            color={overdue ? "#DC2626" : "#64748B"}
+            style={{ marginRight: 5 }}
+          />
+
+          <Text style={[styles.dueDate, overdue && styles.overdue]}>
+            {overdue ? "Overdue · " : "Due · "}
+            {formatDueDate(task.due_date)}
+          </Text>
+        </View>
+
+        <Text style={styles.statusText}>
+          {task.completed ? "Completed" : "In progress"}
         </Text>
       </View>
     </Pressable>

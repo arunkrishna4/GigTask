@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import { COLORS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
@@ -33,16 +35,16 @@ export default StyleSheet.create({
   subtitle: {
     color: "#64748B",
     fontSize: TYPOGRAPHY.small,
-    marginTop: 3,
+    marginTop: normalize(3),
     fontWeight: "500",
   },
 
   logoutButton: {
     flexDirection: "row",
-    gap: 7,
-    minWidth: 108,
-    height: 46,
-    borderRadius: 23,
+    gap: normalize(7),
+    minWidth: normalize(108),
+    height: normalize(46),
+    borderRadius: normalize(23),
     backgroundColor: "rgba(255, 241, 242, 0.9)",
     borderWidth: 1,
     borderColor: "#FECDD3",
@@ -62,7 +64,7 @@ export default StyleSheet.create({
 
   logoutText: {
     color: COLORS.danger,
-    fontSize: TYPOGRAPHY.caption,
+    fontSize: TYPOGRAPHY.small,
     fontWeight: "900",
   },
 
@@ -74,9 +76,9 @@ export default StyleSheet.create({
 
   statCard: {
     flex: 1,
-    minHeight: 104,
+    minHeight: normalize(90),
     backgroundColor: "rgba(255, 255, 255, 0.94)",
-    borderRadius: 22,
+    borderRadius: normalize(22),
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.18)",
     paddingHorizontal: SPACING.md,
@@ -92,46 +94,35 @@ export default StyleSheet.create({
   statTopRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 7,
+    gap: normalize(5),
   },
 
   statIcon: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: "#EEF2FF",
+    width: normalize(25),
+    height: normalize(34),
+    borderRadius: normalize(10),
     alignItems: "center",
     justifyContent: "center",
   },
 
-  pendingIcon: {
-    backgroundColor: "#FEF3C7",
-  },
-
-  doneIcon: {
-    backgroundColor: "#D1FAE5",
-  },
-
   statNumber: {
-    color: "#111827",
-    fontSize: 28,
-    fontWeight: "900",
-    lineHeight: 33,
-    alignSelf: "center",
+    marginTop: normalize(8),
+    fontSize: normalize(28),
+    fontWeight: "800",
+    color: COLORS.white,
+    alignSelf: "center"
   },
 
   statLabel: {
-    color: "#64748B",
-    fontSize: 11,
-    fontWeight: "800",
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
+    fontSize: normalize(15),
+    fontWeight: "600",
+    color: "rgba(255, 255, 255, 0.75)",
   },
 
   error: {
     color: "#BE123C",
     fontSize: TYPOGRAPHY.small,
-    lineHeight: 20,
+    lineHeight: normalize(20),
     marginBottom: SPACING.sm,
   },
 
@@ -141,7 +132,7 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     marginTop: SPACING.xs,
     marginBottom: SPACING.sm,
-    paddingHorizontal: 2,
+    paddingHorizontal: normalize(2),
   },
 
   listTitle: {
@@ -157,22 +148,22 @@ export default StyleSheet.create({
   },
 
   list: {
-    paddingBottom: 126,
+    paddingBottom: normalize(126),
   },
 
   emptyList: {
     flexGrow: 1,
     justifyContent: "center",
-    paddingBottom: 92,
+    paddingBottom: normalize(92),
   },
 
   fab: {
     position: "absolute",
-    bottom: 70,
+    bottom: normalize(60),
     right: SPACING.lg,
-    width: 64,
-    height: 64,
-    borderRadius: 24,
+    width: normalize(64),
+    height: normalize(64),
+    borderRadius: normalize(24),
     backgroundColor: "#111827",
     alignItems: "center",
     justifyContent: "center",
@@ -190,9 +181,9 @@ export default StyleSheet.create({
 
   fabText: {
     color: COLORS.white,
-    fontSize: 34,
+    fontSize: normalize(34),
     fontWeight: "400",
-    lineHeight: 32,
+    lineHeight: normalize(32),
   },
 
   refreshLoader: {
@@ -208,22 +199,22 @@ export default StyleSheet.create({
 
   decorCircleTop: {
     position: "absolute",
-    top: -80,
-    right: -60,
-    width: 220,
-    height: 220,
-    borderRadius: 110,
+    top: normalize(-80),
+    right: normalize(-60),
+    width: normalize(220),
+    height: normalize(220),
+    borderRadius: normalize(110),
     backgroundColor: COLORS.primary,
     opacity: 0.07,
   },
 
   decorCircleBottom: {
     position: "absolute",
-    bottom: -100,
-    left: -80,
-    width: 270,
-    height: 270,
-    borderRadius: 135,
+    bottom: normalize(-100),
+    left: normalize(-80),
+    width: normalize(270),
+    height: normalize(270),
+    borderRadius: normalize(135),
     backgroundColor: COLORS.primary,
     opacity: 0.055,
   },

@@ -1,19 +1,22 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.surface,
     borderRadius: RADIUS.md,
-    paddingHorizontal: SPACING.md,
+    paddingHorizontal: SPACING.xxl,
     paddingTop: SPACING.sm,
     paddingBottom: SPACING.md,
     marginBottom: SPACING.sm,
+
     shadowColor: "#0F172A",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 10,
+    elevation: 4,
+
     zIndex: 10,
   },
 
@@ -21,7 +24,7 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: TYPOGRAPHY.sectionTitle,
     fontWeight: "800",
-    lineHeight: 24,
+    lineHeight: normalize(24),
     textAlign: "center",
     marginBottom: SPACING.sm,
   },
@@ -36,13 +39,13 @@ const styles = StyleSheet.create({
   controlGroup: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
-    minHeight: 36,
+    gap: normalize(6),
+    minHeight: normalize(36),
     zIndex: 10,
   },
 
   label: {
-    color: COLORS.mutedText,
+    color: COLORS.text,
     fontSize: TYPOGRAPHY.caption,
     fontWeight: "800",
     textTransform: "uppercase",
@@ -54,8 +57,8 @@ const styles = StyleSheet.create({
   },
 
   dropdownButton: {
-    minWidth: 102,
-    height: 34,
+    minWidth: normalize(102),
+    height: normalize(34),
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
@@ -80,19 +83,19 @@ const styles = StyleSheet.create({
     color: COLORS.text,
     fontSize: TYPOGRAPHY.caption,
     fontWeight: "700",
-    lineHeight: 16,
+    lineHeight: normalize(16),
   },
 
   chevron: {
     color: COLORS.mutedText,
-    fontSize: 15,
+    fontSize: normalize(15),
     fontWeight: "800",
-    lineHeight: 15,
+    lineHeight: normalize(15),
   },
 
   menu: {
     position: "absolute",
-    top: 38,
+    top: normalize(38),
     left: 0,
     right: 0,
     backgroundColor: COLORS.surface,
@@ -109,10 +112,10 @@ const styles = StyleSheet.create({
   },
 
   menuItem: {
-    minHeight: 34,
+    minHeight: normalize(34),
     flexDirection: "row",
     alignItems: "center",
-    gap: 6,
+    gap: normalize(6),
     paddingHorizontal: SPACING.sm,
     backgroundColor: COLORS.surface,
   },
@@ -136,9 +139,9 @@ const styles = StyleSheet.create({
   },
 
   priorityDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 3.5,
+    width: normalize(7),
+    height: normalize(7),
+    borderRadius: normalize(3.5),
   },
 
   lowDot: {

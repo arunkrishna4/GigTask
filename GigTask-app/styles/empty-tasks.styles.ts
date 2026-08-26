@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
@@ -11,8 +13,8 @@ export default StyleSheet.create({
   },
 
   iconContainer: {
-    width: 64,
-    height: 64,
+    width: normalize(64),
+    height: normalize(64),
     borderRadius: RADIUS.lg,
     backgroundColor: COLORS.primaryLight,
     alignItems: "center",
@@ -22,7 +24,7 @@ export default StyleSheet.create({
 
   icon: {
     color: COLORS.primary,
-    fontSize: 28,
+    fontSize: normalize(28),
     fontWeight: "700",
   },
 
@@ -37,6 +39,6 @@ export default StyleSheet.create({
     fontSize: TYPOGRAPHY.body,
     textAlign: "center",
     marginTop: SPACING.xs,
-    lineHeight: 22,
+    lineHeight: normalize(22),
   },
 });

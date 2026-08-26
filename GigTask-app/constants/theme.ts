@@ -1,3 +1,5 @@
+import { normalize } from "../utils/normalize";
+
 export const COLORS = {
   primary: "#4F46E5",
   primaryDark: "#4338CA",
@@ -39,40 +41,40 @@ export const GRADIENTS = {
 export const SHADOW = {
   card: {
     shadowColor: "#0F172A",
-    shadowOffset: { width: 0, height: 8 },
+    shadowOffset: { width: 0, height: normalize(8) },
     shadowOpacity: 0.06,
-    shadowRadius: 24,
+    shadowRadius: normalize(24),
     elevation: 4,
   },
 } as const;
 
 //components spacing
 export const SPACING = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 20,
-  xxl: 24,
-  xxxl: 32,
+  xs: normalize(4),
+  sm: normalize(8),
+  md: normalize(12),
+  lg: normalize(16),
+  xl: normalize(20),
+  xxl: normalize(24),
+  xxxl: normalize(32),
 } as const;
 
 //font sizes
 export const TYPOGRAPHY = {
-  screenTitle: 28,
-  sectionTitle: 20,
-  cardTitle: 16,
-  body: 17,
-  secondary: 15,
-  button: 15,
-  caption: 12,
-  small: 15,
+  screenTitle: normalize(28),
+  sectionTitle: normalize(19),
+  cardTitle: normalize(16),
+  body: normalize(17),
+  secondary: normalize(15),
+  button: normalize(15),
+  caption: normalize(11),
+  small: normalize(15),
 } as const;
 
 //border radius
 export const RADIUS = {
-  sm: 8,
-  md: 12,
-  lg: 16,
+  sm: normalize(8),
+  md: normalize(12),
+  lg: normalize(16),
   pill: 999,
 } as const;

@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
@@ -21,9 +23,9 @@ export default StyleSheet.create({
   },
 
   backButton: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: normalize(42),
+    height: normalize(42),
+    borderRadius: normalize(21),
     backgroundColor: COLORS.surface,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -45,7 +47,7 @@ export default StyleSheet.create({
   subtitle: {
     color: COLORS.mutedText,
     fontSize: TYPOGRAPHY.small,
-    marginTop: 3,
+    marginTop: normalize(3),
   },
 
   field: {
@@ -60,7 +62,7 @@ export default StyleSheet.create({
   },
 
   input: {
-    minHeight: 52,
+    minHeight: normalize(52),
     backgroundColor: COLORS.surface,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -71,13 +73,13 @@ export default StyleSheet.create({
   },
 
   textArea: {
-    minHeight: 120,
+    minHeight: normalize(120),
     paddingTop: SPACING.md,
     textAlignVertical: "top",
   },
 
   dateButton: {
-    minHeight: 52,
+    minHeight: normalize(52),
     backgroundColor: COLORS.surface,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -104,7 +106,7 @@ export default StyleSheet.create({
 
   priorityButton: {
     flex: 1,
-    minHeight: 48,
+    minHeight: normalize(48),
     borderRadius: RADIUS.md,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -132,11 +134,11 @@ export default StyleSheet.create({
     color: COLORS.danger,
     fontSize: TYPOGRAPHY.small,
     marginBottom: SPACING.md,
-    lineHeight: 18,
+    lineHeight: normalize(18),
   },
 
   submitButton: {
-    minHeight: 54,
+    minHeight: normalize(54),
     backgroundColor: COLORS.primary,
     borderRadius: RADIUS.md,
     alignItems: "center",

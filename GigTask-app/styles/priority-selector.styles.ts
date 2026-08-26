@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
@@ -10,7 +12,7 @@ export default StyleSheet.create({
 
   button: {
     flex: 1,
-    minHeight: 48,
+    minHeight: normalize(48),
     borderRadius: RADIUS.md,
     borderWidth: 1,
     borderColor: COLORS.border,

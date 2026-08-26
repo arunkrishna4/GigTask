@@ -1,27 +1,37 @@
 import { StyleSheet } from "react-native";
+
 import { COLORS, RADIUS, SPACING } from "../constants/theme";
+import { normalize } from "../utils/normalize";
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: COLORS.surface,
+    backgroundColor: "#FFFFFF",
     borderRadius: RADIUS.lg,
     borderWidth: 1,
-    borderColor: COLORS.border,
+    borderColor: "#E2E8F0",
     padding: SPACING.md,
     marginBottom: SPACING.sm,
-    shadowColor: "#000",
+
+    shadowColor: "#0F172A",
     shadowOffset: {
       width: 0,
-      height: 3,
+      height: normalize(4),
     },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
-    elevation: 2,
+    shadowOpacity: 0.07,
+    shadowRadius: normalize(10),
+    elevation: 3,
+
+    overflow: "hidden",
+  },
+
+  completedCard: {
+    backgroundColor: "#F0FDFA",
+    borderColor: "#CCFBF1",
   },
 
   cardPressed: {
-    opacity: 0.92,
-    transform: [{ scale: 0.99 }],
+    opacity: 0.94,
+    transform: [{ scale: 0.985 }],
   },
 
   topRow: {
@@ -30,14 +40,14 @@ const styles = StyleSheet.create({
   },
 
   checkbox: {
-    width: 23,
-    height: 23,
-    borderRadius: 7,
-    borderWidth: 2,
-    borderColor: COLORS.border,
+    width: normalize(23),
+    height: normalize(23),
+    borderRadius: normalize(7),
+    borderWidth: normalize(2),
+    borderColor: "#CBD5E1",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 2,
+    marginTop: normalize(2),
     marginRight: SPACING.sm,
   },
 
@@ -46,111 +56,122 @@ const styles = StyleSheet.create({
   },
 
   checkboxCompleted: {
-    backgroundColor: COLORS.primary,
-    borderColor: COLORS.primary,
+    backgroundColor: "#0F766E",
+    borderColor: "#0F766E",
   },
 
   checkmark: {
     color: COLORS.white,
-    fontSize: 14,
+    fontSize: normalize(14),
     fontWeight: "700",
-    lineHeight: 16,
+    lineHeight: normalize(16),
   },
 
   titleContainer: {
     flex: 1,
-    paddingRight: SPACING.sm,
+    paddingRight: SPACING.xs,
   },
 
   title: {
-    color: COLORS.text,
-    fontSize: 16,
-    fontWeight: "700",
-    lineHeight: 21,
+    color: "#0F172A",
+    fontSize: normalize(16),
+    // fontWeight: "750",
+    lineHeight: normalize(21),
   },
 
   completedTitle: {
-    color: COLORS.mutedText,
+    color: "#64748B",
     textDecorationLine: "line-through",
   },
 
   description: {
-    color: COLORS.mutedText,
-    fontSize: 13,
-    lineHeight: 19,
-    marginTop: 4,
+    color: "#64748B",
+    fontSize: normalize(13),
+    lineHeight: normalize(18),
+    marginTop: normalize(5),
   },
 
   priorityBadge: {
-    paddingHorizontal: 9,
-    paddingVertical: 5,
-    borderRadius: 999,
-    marginLeft: SPACING.xs,
+    paddingHorizontal: normalize(9),
+    paddingVertical: normalize(5),
+    borderRadius: normalize(999),
   },
 
   lowBadge: {
-    backgroundColor: "#EAF7EE",
+    backgroundColor: "#DCFCE7",
   },
 
   mediumBadge: {
-    backgroundColor: "#FFF7D6",
+    backgroundColor: "#FEF3C7",
   },
 
   highBadge: {
-    backgroundColor: "#FDECEC",
+    backgroundColor: "#FEE2E2",
   },
 
   priorityText: {
-    fontSize: 12,
-    fontWeight: "700",
+    fontSize: normalize(11),
+    fontWeight: "800",
     textTransform: "uppercase",
-    letterSpacing: 0.3,
+    letterSpacing: 0.4,
   },
 
   lowText: {
-    color: "#2F8F4E",
+    color: "#15803D",
   },
 
   mediumText: {
-    color: "#A47700",
+    color: "#B45309",
   },
 
   highText: {
-    color: "#C94A4A",
+    color: "#DC2626",
+  },
+
+  rightSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: SPACING.xs,
+  },
+
+  arrow: {
+    color: "#94A3B8",
+    fontSize: normalize(27),
+    lineHeight: normalize(24),
+    marginLeft: normalize(5),
   },
 
   bottomRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+
     marginTop: SPACING.md,
     paddingTop: SPACING.sm,
+
     borderTopWidth: 1,
-    borderTopColor: COLORS.border,
+    borderTopColor: "#E2E8F0",
+  },
+
+  dueContainer: {
+    flexDirection: "row",
+    alignItems: "center",
   },
 
   dueDate: {
-    color: COLORS.mutedText,
-    fontSize: 12,
+    color: "#64748B",
+    fontSize: normalize(12),
     fontWeight: "600",
   },
 
   overdue: {
-    color: "#C94A4A",
-  },
-  rightSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    marginLeft: SPACING.xs,
+    color: "#DC2626",
   },
 
-  arrow: {
-    color: COLORS.mutedText,
-    fontSize: 28,
-    lineHeight: 24,
-    marginTop: 5,
-    marginLeft: 4,
+  statusText: {
+    color: "#94A3B8",
+    fontSize: normalize(11),
+    fontWeight: "600",
   },
 });
 

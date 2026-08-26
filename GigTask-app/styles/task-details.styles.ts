@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { normalize } from "../utils/normalize";
+
 
 import { COLORS, RADIUS, SPACING, TYPOGRAPHY } from "../constants/theme";
 
@@ -13,7 +15,7 @@ export default StyleSheet.create({
     position: "relative",
     paddingHorizontal: SPACING.lg,
     paddingTop: SPACING.sm,
-    paddingBottom: 72,
+    paddingBottom: normalize(72),
   },
 
   center: {
@@ -30,9 +32,9 @@ export default StyleSheet.create({
   },
 
   backButton: {
-    width: 46,
-    height: 46,
-    borderRadius: 23,
+    width: normalize(46),
+    height: normalize(46),
+    borderRadius: normalize(23),
     backgroundColor: "rgba(255, 255, 255, 0.92)",
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.22)",
@@ -52,7 +54,7 @@ export default StyleSheet.create({
 
   headerTitle: {
     color: "#111827",
-    fontSize: 24,
+    fontSize: normalize(24),
     fontWeight: "800",
     letterSpacing: 0,
   },
@@ -60,13 +62,14 @@ export default StyleSheet.create({
   headerSubtitle: {
     color: "#64748B",
     fontSize: TYPOGRAPHY.small,
-    marginTop: 3,
+    marginTop: normalize(3),
     fontWeight: "500",
   },
 
   taskHero: {
-    minHeight: 176,
-    borderRadius: 28,
+    marginTop: normalize(20),
+    minHeight: normalize(176),
+    borderRadius: normalize(28),
     padding: SPACING.xl,
     marginBottom: SPACING.md,
     justifyContent: "center",
@@ -93,9 +96,9 @@ export default StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     alignSelf: "center",
-    gap: 7,
+    gap: normalize(7),
     paddingHorizontal: SPACING.md,
-    paddingVertical: 8,
+    paddingVertical: normalize(8),
     borderRadius: RADIUS.pill,
     backgroundColor: "rgba(255, 255, 255, 0.16)",
     borderWidth: 1,
@@ -103,9 +106,9 @@ export default StyleSheet.create({
   },
 
   statusDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: normalize(8),
+    height: normalize(8),
+    borderRadius: normalize(4),
     backgroundColor: "#A5B4FC",
   },
 
@@ -121,11 +124,11 @@ export default StyleSheet.create({
 
   taskTitle: {
     color: COLORS.white,
-    fontSize: 30,
-    lineHeight: 37,
+    fontSize: normalize(22),
+    lineHeight: normalize(37),
     fontWeight: "900",
     letterSpacing: 0,
-    marginBottom: 6,
+    marginBottom: normalize(6),
   },
 
   completedTitle: {
@@ -135,8 +138,8 @@ export default StyleSheet.create({
 
   description: {
     color: "rgba(255, 255, 255, 0.82)",
-    fontSize: TYPOGRAPHY.body,
-    lineHeight: 24,
+    fontSize: TYPOGRAPHY.secondary,
+    lineHeight: normalize(24),
     fontWeight: "500",
   },
 
@@ -154,9 +157,9 @@ export default StyleSheet.create({
 
   metaCard: {
     flex: 1,
-    minHeight: 116,
+    minHeight: normalize(116),
     backgroundColor: "rgba(255, 255, 255, 0.94)",
-    borderRadius: 20,
+    borderRadius: normalize(20),
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.18)",
     padding: SPACING.md,
@@ -168,9 +171,9 @@ export default StyleSheet.create({
   },
 
   metaIconContainer: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: normalize(36),
+    height: normalize(36),
+    borderRadius: normalize(18),
     backgroundColor: "#EEF2FF",
     alignItems: "center",
     justifyContent: "center",
@@ -179,11 +182,11 @@ export default StyleSheet.create({
 
   metaLabel: {
     color: "#64748B",
-    fontSize: 11,
+    fontSize: normalize(11),
     fontWeight: "800",
     textTransform: "uppercase",
     letterSpacing: 0.6,
-    marginBottom: 4,
+    marginBottom: normalize(4),
   },
 
   metaValue: {
@@ -194,7 +197,7 @@ export default StyleSheet.create({
 
   insightCard: {
     backgroundColor: "rgba(255, 255, 255, 0.92)",
-    borderRadius: 24,
+    borderRadius: normalize(24),
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.18)",
     padding: SPACING.sm,
@@ -207,16 +210,16 @@ export default StyleSheet.create({
   },
 
   completionCard: {
-    minHeight: 76,
+    minHeight: normalize(76),
     paddingHorizontal: SPACING.md,
     flexDirection: "row",
     alignItems: "center",
   },
 
   completionIcon: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: normalize(42),
+    height: normalize(42),
+    borderRadius: normalize(21),
     borderWidth: 1,
     borderColor: "#C7D2FE",
     backgroundColor: "#EEF2FF",
@@ -232,7 +235,7 @@ export default StyleSheet.create({
 
   completionCheck: {
     color: COLORS.white,
-    fontSize: 18,
+    fontSize: normalize(18),
     fontWeight: "800",
   },
 
@@ -249,8 +252,8 @@ export default StyleSheet.create({
   completionSubtitle: {
     color: "#64748B",
     fontSize: TYPOGRAPHY.small,
-    lineHeight: 20,
-    marginTop: 3,
+    lineHeight: normalize(20),
+    marginTop: normalize(3),
   },
 
   actionContainer: {
@@ -259,9 +262,9 @@ export default StyleSheet.create({
   },
 
   editButton: {
-    minHeight: 54,
+    minHeight: normalize(54),
     backgroundColor: "#111827",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "#111827",
@@ -283,9 +286,9 @@ export default StyleSheet.create({
   },
 
   saveButton: {
-    minHeight: 54,
+    minHeight: normalize(54),
     backgroundColor: "#111827",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     alignItems: "center",
     justifyContent: "center",
     shadowColor: "#111827",
@@ -296,9 +299,9 @@ export default StyleSheet.create({
   },
 
   cancelButton: {
-    minHeight: 52,
+    minHeight: normalize(52),
     backgroundColor: "rgba(255, 255, 255, 0.94)",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.22)",
     alignItems: "center",
@@ -312,9 +315,9 @@ export default StyleSheet.create({
   },
 
   deleteButton: {
-    minHeight: 50,
+    minHeight: normalize(50),
     backgroundColor: "#FFF1F2",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     borderWidth: 1,
     borderColor: "#FECDD3",
     alignItems: "center",
@@ -335,13 +338,13 @@ export default StyleSheet.create({
   error: {
     color: "#BE123C",
     fontSize: TYPOGRAPHY.small,
-    lineHeight: 20,
+    lineHeight: normalize(20),
     marginBottom: SPACING.md,
   },
 
   formCard: {
     backgroundColor: "rgba(255, 255, 255, 0.94)",
-    borderRadius: 28,
+    borderRadius: normalize(28),
     borderWidth: 1,
     borderColor: "rgba(148, 163, 184, 0.18)",
     padding: SPACING.lg,
@@ -359,15 +362,15 @@ export default StyleSheet.create({
 
   formTitle: {
     color: "#111827",
-    fontSize: 24,
+    fontSize: normalize(24),
     fontWeight: "900",
   },
 
   formSubtitle: {
     color: "#64748B",
     fontSize: TYPOGRAPHY.small,
-    lineHeight: 20,
-    marginTop: 4,
+    lineHeight: normalize(20),
+    marginTop: normalize(4),
   },
 
   field: {
@@ -384,11 +387,11 @@ export default StyleSheet.create({
   },
 
   input: {
-    minHeight: 54,
+    minHeight: normalize(54),
     backgroundColor: "#F8FAFC",
     borderWidth: 1,
     borderColor: "#E2E8F0",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     paddingHorizontal: SPACING.md,
     color: "#111827",
     fontSize: TYPOGRAPHY.body,
@@ -396,9 +399,9 @@ export default StyleSheet.create({
   },
 
   textArea: {
-    minHeight: 132,
+    minHeight: normalize(132),
     paddingTop: SPACING.md,
-    lineHeight: 23,
+    lineHeight: normalize(23),
     textAlignVertical: "top",
   },
 
@@ -413,11 +416,11 @@ export default StyleSheet.create({
   },
 
   dateButton: {
-    minHeight: 54,
+    minHeight: normalize(54),
     backgroundColor: "#F8FAFC",
     borderWidth: 1,
     borderColor: "#E2E8F0",
-    borderRadius: 18,
+    borderRadius: normalize(18),
     paddingHorizontal: SPACING.md,
     flexDirection: "row",
     alignItems: "center",
@@ -439,7 +442,7 @@ export default StyleSheet.create({
 
   priorityButton: {
     flex: 1,
-    minHeight: 48,
+    minHeight: normalize(48),
     borderRadius: RADIUS.md,
     borderWidth: 1,
     borderColor: COLORS.border,
@@ -465,22 +468,22 @@ export default StyleSheet.create({
 
   decorCircleTop: {
     position: "absolute",
-    top: -78,
-    right: -62,
-    width: 220,
-    height: 220,
-    borderRadius: 110,
+    top: normalize(-78),
+    right: normalize(-62),
+    width: normalize(220),
+    height: normalize(220),
+    borderRadius: normalize(110),
     backgroundColor: COLORS.primary,
     opacity: 0.07,
   },
 
   decorCircleBottom: {
     position: "absolute",
-    bottom: -96,
-    left: -82,
-    width: 270,
-    height: 270,
-    borderRadius: 135,
+    bottom: normalize(-96),
+    left: normalize(-82),
+    width: normalize(270),
+    height: normalize(270),
+    borderRadius: normalize(135),
     backgroundColor: COLORS.primary,
     opacity: 0.055,
   },
