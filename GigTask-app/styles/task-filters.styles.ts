@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
   label: {
     color: COLORS.text,
-    fontSize: TYPOGRAPHY.caption,
+    fontSize: TYPOGRAPHY.medium,
     fontWeight: "800",
     textTransform: "uppercase",
   },
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
   dropdownText: {
     color: COLORS.text,
-    fontSize: TYPOGRAPHY.caption,
+    fontSize: TYPOGRAPHY.medium,
     fontWeight: "700",
     lineHeight: normalize(16),
   },

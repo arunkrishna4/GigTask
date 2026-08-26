@@ -4,7 +4,7 @@
     "slug": "GigTask-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/appicon.png",
     "scheme": "gigtaskapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -53,6 +53,12 @@
         "projectId": "47d145ee-d154-4aab-b5de-05196e86ce03"
       }
     },
-    "owner": "arunkrishna7"
+    "owner": "arunkrishna7",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/47d145ee-d154-4aab-b5de-05196e86ce03"
+    }
   }
 }

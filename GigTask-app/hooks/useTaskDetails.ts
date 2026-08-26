@@ -55,13 +55,18 @@ export function useTaskDetails() {
       setDescription(data.description ?? "");
       setDueDate(new Date(data.due_date));
       setPriority(data.priority);
-    } catch (error) {
-      setError(
-        error instanceof Error ? error.message : "Unable to load task.",
-      );
+    } catch (err) {
+      let errorInfo = "Unable to load task.";
+      if (err instanceof Error) {
+        errorInfo = `${err.name}: ${err.message}`;
+        if (err.stack) {
+          errorInfo += `\n${err.stack.substring(0, 200)}`; // Keep it short enough for UI
+        }
+      }
+      setError(errorInfo);
     } finally {
+      // End load
       setLoading(false);
-
     }
   }, [id]);
 

@@ -79,11 +79,7 @@ export default function TaskDetailsReadOnly({
                     <Text style={styles.metaLabel}>Due date</Text>
 
                     <Text style={styles.metaValue}>
-                        {new Date(task.due_date).toLocaleDateString(undefined, {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                        })}
+                        {task.due_date}
                     </Text>
                 </View>
 
@@ -115,8 +111,8 @@ export default function TaskDetailsReadOnly({
                     <Text style={styles.metaLabel}>Priority</Text>
 
                     <Text style={styles.metaValue}>
-                        {task.priority.charAt(0).toUpperCase() +
-                            task.priority.slice(1)}
+                        {task.priority?.charAt(0).toUpperCase() +
+                            task.priority?.slice(1)}
                     </Text>
                 </View>
             </View>

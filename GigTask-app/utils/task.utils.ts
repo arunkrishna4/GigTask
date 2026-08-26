@@ -1,17 +1,25 @@
 import { TaskPriority } from "../types/task";
 
+const MONTHS_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
+
 export function formatDueDate(date: string): string {
   const taskDate = new Date(date);
 
-  return taskDate.toLocaleDateString(undefined, {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  return `${taskDate.getDate()} ${MONTHS_SHORT[taskDate.getMonth()]} ${taskDate.getFullYear()}`;
 }
 
 export function getPriorityLabel(priority: TaskPriority): string {
   return priority.charAt(0).toUpperCase() + priority.slice(1);
+}
+
+const WEEKDAYS_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+export function formatDateWithWeekday(date: Date, includeYear = false): string {
+  const base = `${WEEKDAYS_SHORT[date.getDay()]}, ${date.getDate()} ${MONTHS_SHORT[date.getMonth()]}`;
+  return includeYear ? `${base} ${date.getFullYear()}` : base;
 }
 
 export function isOverdue(dueDate: string, completed: boolean): boolean {

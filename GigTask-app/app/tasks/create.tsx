@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { formatDateWithWeekday } from "@/utils/task.utils";
 import PrioritySelector from "../../components/PrioritySelector";
 import { COLORS, GRADIENTS } from "../../constants/theme";
 import { useCreateTask } from "../../hooks/useCreateTask";
@@ -104,12 +105,7 @@ export default function CreateTask() {
                 onPress={() => setShowDatePicker(true)}
               >
                 <Text style={styles.dateText}>
-                  {dueDate.toLocaleDateString(undefined, {
-                    weekday: "short",
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  })}
+                  {formatDateWithWeekday(dueDate, true)}
                 </Text>
 
                 <Ionicons

@@ -69,6 +69,7 @@ export const TYPOGRAPHY = {
   button: normalize(15),
   caption: normalize(11),
   small: normalize(15),
+  medium: normalize(12),
 } as const;
 
 //border radius

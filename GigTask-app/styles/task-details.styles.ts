@@ -118,7 +118,7 @@ export default StyleSheet.create({
 
   statusText: {
     color: COLORS.white,
-    fontSize: TYPOGRAPHY.caption,
+    fontSize: TYPOGRAPHY.medium,
     fontWeight: "800",
   },
 

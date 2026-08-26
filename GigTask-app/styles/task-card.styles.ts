@@ -132,6 +132,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginLeft: SPACING.xs,
+    alignSelf: "center"
   },
 
   arrow: {

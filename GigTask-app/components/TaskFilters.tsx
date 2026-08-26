@@ -58,7 +58,7 @@ export default function TaskFilters({
 
       <View style={styles.controlsRow}>
         <View style={styles.controlGroup}>
-          <Text style={styles.label}>Status:</Text>
+          <Text style={styles.label}>Status</Text>
           <View style={styles.dropdownWrap}>
             <Pressable
               style={({ pressed }) => [
@@ -111,7 +111,7 @@ export default function TaskFilters({
         </View>
 
         <View style={styles.controlGroup}>
-          <Text style={styles.label}>Priority:</Text>
+          <Text style={styles.label}>Priority</Text>
           <View style={styles.dropdownWrap}>
             <Pressable
               style={({ pressed }) => [

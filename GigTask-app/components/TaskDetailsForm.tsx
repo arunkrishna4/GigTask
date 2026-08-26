@@ -1,3 +1,4 @@
+import { formatDateWithWeekday } from "@/utils/task.utils";
 import { Ionicons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import React from "react";
@@ -32,6 +33,8 @@ interface TaskDetailsFormProps {
     handleDelete: () => void;
 }
 
+
+
 export default function TaskDetailsForm({
     title,
     description,
@@ -50,6 +53,8 @@ export default function TaskDetailsForm({
     cancelEditing,
     handleDelete,
 }: TaskDetailsFormProps) {
+
+
     return (
         <>
             <View style={styles.formCard}>
@@ -96,11 +101,7 @@ export default function TaskDetailsForm({
                             onPress={() => setShowDatePicker(true)}
                         >
                             <Text style={styles.dateText}>
-                                {dueDate.toLocaleDateString(undefined, {
-                                    weekday: "short",
-                                    day: "numeric",
-                                    month: "short",
-                                })}
+                                {formatDateWithWeekday(dueDate)}
                             </Text>
 
                             <Ionicons
