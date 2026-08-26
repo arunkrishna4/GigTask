@@ -112,8 +112,7 @@ The project keeps different responsibilities separated:
 - **Styles** → UI styling
 - **Types** → TypeScript type definitions
 - **Context** → Global application state
-
----
+```
 
 ## 🗄️ Database
 
