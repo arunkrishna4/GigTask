@@ -99,3 +99,74 @@ GigTask/
 ├── utils/                  # Validation, formatting and utilities
 │
 └── assets/                 # Application assets
+
+### Separation of Concerns
+
+The project keeps different responsibilities separated:
+
+- **Pages** → UI and screen composition
+- **Components** → Reusable UI elements
+- **Hooks** → Screen-level state and business logic
+- **Services** → Supabase/database operations
+- **Utils** → Validation, formatting and reusable logic
+- **Styles** → UI styling
+- **Types** → TypeScript type definitions
+- **Context** → Global application state
+
+---
+
+## 🗄️ Database
+
+GigTask uses **Supabase PostgreSQL** for storing tasks.
+
+Each task contains:
+
+| Field | Description |
+|-------|-------------|
+| `id` | Unique task identifier |
+| `user_id` | ID of the authenticated user |
+| `title` | Task title |
+| `description` | Optional task description |
+| `due_date` | Task due date |
+| `priority` | Task priority |
+| `completed` | Task completion status |
+| `created_at` | Creation timestamp |
+| `updated_at` | Last update timestamp |
+
+Tasks are associated with the authenticated user using `user_id`.
+
+---
+
+## 🔐 Authentication & Security
+
+Authentication is handled using **Supabase Auth**.
+
+The application:
+
+- Maintains authenticated user sessions
+- Associates every task with its user
+- Retrieves only tasks belonging to the authenticated user
+- Uses Supabase Row Level Security (RLS) to protect task data
+- Keeps Supabase configuration outside the source code
+
+> Never expose Supabase service-role keys or other private credentials in the repository.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js
+- npm
+- Expo
+- EAS CLI
+- A Supabase project
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd GigTask
